@@ -1,0 +1,222 @@
+import React, {
+    forwardRef,
+    Suspense,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+    useState,
+  } from "react";
+  import { Canvas, useThree } from "@react-three/fiber";
+  import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
+  import * as THREE from "three";
+  import { useScrollContext } from "../ScrollContext";
+  
+  // ================== AnimatedModel ==================
+  const AnimatedModel = forwardRef((props, ref) => {
+    const gltf = useGLTF("/models/char.glb");
+    const { scene, animations } = gltf;
+    const { actions } = useAnimations(animations, scene);
+  
+    const videoRef = useRef(document.createElement("video"));
+    const animName = animations[0]?.name;
+  
+    useEffect(() => {
+      if (!actions || !animName) return;
+  
+      const video = videoRef.current;
+      video.src = "/videos/demo.mp4";
+      video.crossOrigin = "anonymous";
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "auto";
+  
+      const texture = new THREE.VideoTexture(video);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.flipY = false;
+  
+      const screen = scene.getObjectByName("MY_SCREEN_MY_SCREEN_0");
+      if (screen?.material) {
+        screen.material.map = texture;
+        screen.material.needsUpdate = true;
+      }
+  
+      const action = actions[animName];
+      action?.stop().reset();
+  
+      const handleKeyDown = (e) => {
+        const key = e.key.toLowerCase();
+        if (key === "w") {
+          action?.reset().play();
+          video.play();
+        } else if (key === "q") {
+          action?.stop().reset();
+          video.pause();
+          video.currentTime = 0;
+        }
+      };
+  
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        video.pause();
+        video.currentTime = 0;
+      };
+    }, [actions, animName, scene]);
+  
+    useImperativeHandle(ref, () => ({
+      scene,
+      animations,
+      actions,
+      video: videoRef.current,
+    }));
+  
+    return <primitive object={scene} />;
+  });
+  
+  // ================== CameraDebugger ==================
+  function CameraDebugger({ setCameraInfo, modelRef }) {
+    const { camera, gl } = useThree();
+    const controlsRef = useRef();
+    const { isSecondSection } = useScrollContext();
+  
+    useEffect(() => {
+      const handleKey = (e) => {
+        const key = e.key.toLowerCase();
+        if (!controlsRef.current) return;
+  
+        const targetE = new THREE.Vector3(-0.21, 1.81, -0.39);
+        const posE = new THREE.Vector3(-0.17, 1.96, 0.60);
+        const targetR = new THREE.Vector3(-1.01, 1.34, 0.06);
+        const posR = new THREE.Vector3(-1.68, 1.44, -0.69);
+  
+        if (key === "e") {
+          controlsRef.current.target.copy(targetE);
+          camera.position.copy(posE);
+          controlsRef.current.update();
+        } else if (key === "r") {
+          controlsRef.current.target.copy(targetR);
+          camera.position.copy(posR);
+          controlsRef.current.update();
+        } else if (key === "t") {
+          camera.position.copy(posE);
+          controlsRef.current.target.copy(targetE);
+          controlsRef.current.update();
+  
+          const duration = 1.5;
+          const steps = 60 * duration;
+          let count = 0;
+          const startPos = posE.clone();
+          const startTarget = targetE.clone();
+  
+          const animate = () => {
+            count++;
+            const alpha = count / steps;
+            camera.position.copy(startPos.clone().lerp(posR, alpha));
+            controlsRef.current.target.copy(startTarget.clone().lerp(targetR, alpha));
+            controlsRef.current.update();
+            if (count < steps) requestAnimationFrame(animate);
+          };
+  
+          animate();
+        }
+      };
+  
+      window.addEventListener("keydown", handleKey);
+      return () => window.removeEventListener("keydown", handleKey);
+    }, [camera]);
+  
+    useEffect(() => {
+      const updateLoop = () => {
+        const pos = camera.position;
+        const target = controlsRef.current?.target;
+        if (target) {
+          setCameraInfo({
+            position: { x: pos.x, y: pos.y, z: pos.z },
+            target: { x: target.x, y: target.y, z: target.z },
+          });
+        }
+        requestAnimationFrame(updateLoop);
+      };
+  
+      updateLoop();
+    }, [camera]);
+  
+    // Scroll-triggered camera + animation + video control
+    useEffect(() => {
+      if (!controlsRef.current || !modelRef.current) return;
+  
+      const targetE = new THREE.Vector3(-0.21, 1.81, -0.39);
+      const posE = new THREE.Vector3(-0.17, 1.96, 0.60);
+      const targetR = new THREE.Vector3(-1.01, 1.34, 0.06);
+      const posR = new THREE.Vector3(-1.68, 1.44, -0.69);
+  
+      const target = isSecondSection ? targetR : targetE;
+      const pos = isSecondSection ? posR : posE;
+  
+      const actions = modelRef.current.actions;
+      const action = actions?.["Skeleton|mixamo.com|Layer0"] ?? actions?.[Object.keys(actions)[0]];
+      const video = modelRef.current.video;
+  
+      if (action) {
+        if (isSecondSection) {
+          action.reset().play();
+          video?.play();
+        } else {
+          action.stop().reset();
+          video?.pause();
+          video.currentTime = 0;
+        }
+      }
+  
+      const duration = 1.5;
+      const steps = 60 * duration;
+      let count = 0;
+      const startPos = camera.position.clone();
+      const startTarget = controlsRef.current.target.clone();
+  
+      const animate = () => {
+        count++;
+        const alpha = count / steps;
+        camera.position.copy(startPos.clone().lerp(pos, alpha));
+        controlsRef.current.target.copy(startTarget.clone().lerp(target, alpha));
+        controlsRef.current.update();
+        if (count < steps) requestAnimationFrame(animate);
+      };
+  
+      animate();
+    }, [isSecondSection]);
+  
+    return <OrbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
+  }
+  
+  // ================== ModelViewer ==================
+  export default function ModelViewer({ layout = "center" }) {
+    const [cameraInfo, setCameraInfo] = useState({
+      position: { x: 0, y: 0, z: 0 },
+      target: { x: 0, y: 0, z: 0 },
+    });
+  
+    const modelRef = useRef();
+  
+    const canvasStyle =
+      layout === "center"
+        ? { position: "absolute", inset: 0 }
+        : { position: "absolute", top: 0, bottom: 0, left: 0, right: 0 };
+  
+    return (
+      <div style={{ width: "100%", height: "100%", position: "relative" }}>
+        <div style={canvasStyle}>
+          <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[2, 2, 2]} />
+            <Suspense fallback={null}>
+              <AnimatedModel ref={modelRef} />
+              <CameraDebugger setCameraInfo={setCameraInfo} modelRef={modelRef} />
+            </Suspense>
+          </Canvas>
+        </div>
+      </div>
+    );
+  }
+  
