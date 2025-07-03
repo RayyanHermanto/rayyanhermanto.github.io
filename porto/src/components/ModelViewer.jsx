@@ -95,14 +95,23 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
   const { isSecondSection } = useScrollContext();
 
   useEffect(() => {
+    if (!controlsRef.current) return;
+  
+    // Set target kamera saat mount awal
+    const targetInit = new THREE.Vector3(-0.21, 1.4, -0.39);
+    controlsRef.current.target.copy(targetInit);
+    controlsRef.current.update();
+  }, []);
+
+  useEffect(() => {
     const handleKey = (e) => {
       const key = e.key.toLowerCase();
       if (!controlsRef.current) return;
 
       const targetE = new THREE.Vector3(-0.21, 1.81, -0.39);
       const posE = new THREE.Vector3(-0.17, 1.96, 0.60);
-      const targetR = new THREE.Vector3(-1.75, 1.44, 0.88);
-      const posR = new THREE.Vector3(-2.72, 1.7, -1.46);
+      const targetR = new THREE.Vector3(-1.57, 1.44, 0.77);
+      const posR = new THREE.Vector3(-2.69, 1.67, -0.97);
 
       if (key === "e") {
         controlsRef.current.target.copy(targetE);
@@ -162,8 +171,8 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
 
     const targetE = new THREE.Vector3(-0.21, 1.81, -0.39);
     const posE = new THREE.Vector3(-0.17, 1.96, 0.60);
-    const targetR = new THREE.Vector3(-1.75, 1.44, 0.88);
-    const posR = new THREE.Vector3(-2.72, 1.7, -1.46);
+    const targetR = new THREE.Vector3(-1.57, 1.44, 0.77);
+      const posR = new THREE.Vector3(-2.69, 1.67, -0.97);
 
     const target = isSecondSection ? targetR : targetE;
     const pos = isSecondSection ? posR : posE;
@@ -226,6 +235,33 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
   return <OrbitControls ref={controlsRef} args={[camera, gl.domElement]} />;
 }
 
+function SceneLights() {
+  const targetRef = useRef();
+
+  useEffect(() => {
+    if (targetRef.current) {
+      targetRef.current.position.set(0, 0, 0); // arah spotlight
+    }
+  }, []);
+
+  return (
+    <>
+      <spotLight
+        position={[-0.15, 2.05, 1.18]}
+        intensity={2}
+        angle={0.4}
+        penumbra={0.5}
+        decay={2}
+        distance={10}
+        color="white"
+        castShadow
+        target={targetRef.current}
+      />
+      <primitive object={targetRef.current || new THREE.Object3D()} ref={targetRef} />
+    </>
+  );
+}
+
 // ================== ModelViewer ==================
 export default function ModelViewer({ layout = "center" }) {
   const [cameraInfo, setCameraInfo] = useState({
@@ -263,9 +299,9 @@ export default function ModelViewer({ layout = "center" }) {
       )}
 
       <div style={canvasStyle}>
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <Canvas camera={{ position: [-0.17, 1.96, 0.60], fov: 50 }}>
           {/* Cahaya */}
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={2} />
           <pointLight
             position={[0, 0, -1]}
             intensity={300}
@@ -273,6 +309,22 @@ export default function ModelViewer({ layout = "center" }) {
             decay={2}
             color="purple"
             castShadow
+          />
+          {/* === Lampu Spotlight === */}
+          <spotLight
+            position={[-0.17, 1.96, 0.60]}
+            intensity={2}
+            angle={0.4}
+            penumbra={0.5}
+            decay={2}
+            distance={10}
+            color="white"
+            castShadow
+          />
+          <primitive
+            object={new THREE.Object3D()}
+            position={[-0.21, 1.81, -0.39]} // target sorotan spotlight
+            attach="target"
           />
 
           {/* Model dan kontrol kamera */}
