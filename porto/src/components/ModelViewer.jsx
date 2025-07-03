@@ -169,8 +169,8 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
   useEffect(() => {
     if (!controlsRef.current || !modelRef.current) return;
 
-    const targetE = new THREE.Vector3(-0.21, 1.81, -0.39);
-    const posE = new THREE.Vector3(-0.17, 1.96, 0.60);
+    const targetE = new THREE.Vector3(-0.20, 1.88, -0.39);
+    const posE = new THREE.Vector3(-0.16, 1.89, 0.78);
     const targetR = new THREE.Vector3(-1.57, 1.44, 0.77);
       const posR = new THREE.Vector3(-2.69, 1.67, -0.97);
 
