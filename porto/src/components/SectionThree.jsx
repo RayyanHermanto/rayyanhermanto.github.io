@@ -52,7 +52,7 @@ export default function SectionThree() {
           borderRadius: "2px",
           transform: "translateX(-50%)",
           transition: "height 0.2s ease",
-          marginTop: "10px"
+          marginTop: "10px",
         }}
       />
 
@@ -68,7 +68,10 @@ export default function SectionThree() {
         }}
       >
         <h3>Kiri: Pengalaman</h3>
-        <p>Pengalaman saya dimulai dari membangun website kecil hingga aplikasi kompleks.</p>
+        <p>
+          Pengalaman saya dimulai dari membangun website kecil hingga aplikasi
+          kompleks.
+        </p>
       </div>
 
       {/* Teks di kanan */}
@@ -83,7 +86,10 @@ export default function SectionThree() {
         }}
       >
         <h3>Kanan: Misi Saya</h3>
-        <p>Menciptakan aplikasi yang tidak hanya bekerja, tapi juga memberi pengalaman menarik.</p>
+        <p>
+          Menciptakan aplikasi yang tidak hanya bekerja, tapi juga memberi
+          pengalaman menarik.
+        </p>
       </div>
 
       {/* Konten utama */}

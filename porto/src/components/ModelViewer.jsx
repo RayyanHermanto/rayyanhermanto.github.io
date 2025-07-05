@@ -1,11 +1,11 @@
 import React, {
-    forwardRef,
-    Suspense,
-    useEffect,
-    useImperativeHandle,
-    useRef,
-    useState,
-  } from "react";
+  forwardRef,
+  Suspense,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 import * as THREE from "three";
@@ -71,7 +71,7 @@ const AnimatedModel = forwardRef((props, ref) => {
     const planeMaterial = new THREE.MeshStandardMaterial({ color: "black" });
     const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
 
-    planeMesh.position.set(-0.17, 1.96, -2.60); // posisi di belakang model
+    planeMesh.position.set(-0.17, 1.96, -2.6); // posisi di belakang model
     planeMesh.rotation.set(0, 0, 0); // tegak lurus
     planeMesh.receiveShadow = true;
 
@@ -96,7 +96,7 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
 
   useEffect(() => {
     if (!controlsRef.current) return;
-  
+
     // Set target kamera saat mount awal
     const targetInit = new THREE.Vector3(-0.21, 1.4, -0.39);
     controlsRef.current.target.copy(targetInit);
@@ -109,7 +109,7 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
       if (!controlsRef.current) return;
 
       const targetE = new THREE.Vector3(-0.21, 1.81, -0.39);
-      const posE = new THREE.Vector3(-0.17, 1.96, 0.60);
+      const posE = new THREE.Vector3(-0.17, 1.96, 0.6);
       const targetR = new THREE.Vector3(-1.57, 1.44, 0.77);
       const posR = new THREE.Vector3(-2.69, 1.67, -0.97);
 
@@ -136,7 +136,9 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
           count++;
           const alpha = count / steps;
           camera.position.copy(startPos.clone().lerp(posR, alpha));
-          controlsRef.current.target.copy(startTarget.clone().lerp(targetR, alpha));
+          controlsRef.current.target.copy(
+            startTarget.clone().lerp(targetR, alpha),
+          );
           controlsRef.current.update();
           if (count < steps) requestAnimationFrame(animate);
         };
@@ -169,16 +171,18 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
   useEffect(() => {
     if (!controlsRef.current || !modelRef.current) return;
 
-    const targetE = new THREE.Vector3(-0.20, 1.88, -0.39);
+    const targetE = new THREE.Vector3(-0.2, 1.88, -0.39);
     const posE = new THREE.Vector3(-0.16, 1.89, 0.78);
     const targetR = new THREE.Vector3(-1.57, 1.44, 0.77);
-      const posR = new THREE.Vector3(-2.69, 1.67, -0.97);
+    const posR = new THREE.Vector3(-2.69, 1.67, -0.97);
 
     const target = isSecondSection ? targetR : targetE;
     const pos = isSecondSection ? posR : posE;
 
     const actions = modelRef.current.actions;
-    const action = actions?.["Skeleton|mixamo.com|Layer0"] ?? actions?.[Object.keys(actions)[0]];
+    const action =
+      actions?.["Skeleton|mixamo.com|Layer0"] ??
+      actions?.[Object.keys(actions)[0]];
     const video = modelRef.current.video;
 
     if (action) {
@@ -192,7 +196,7 @@ function CameraDebugger({ setCameraInfo, modelRef }) {
       }
     }
 
-    const duration = 1.5;
+    const duration = 0.5;
     const steps = 60 * duration;
     let count = 0;
     const startPos = camera.position.clone();
@@ -257,7 +261,10 @@ function SceneLights() {
         castShadow
         target={targetRef.current}
       />
-      <primitive object={targetRef.current || new THREE.Object3D()} ref={targetRef} />
+      <primitive
+        object={targetRef.current || new THREE.Object3D()}
+        ref={targetRef}
+      />
     </>
   );
 }
@@ -292,14 +299,23 @@ export default function ModelViewer({ layout = "center" }) {
             zIndex: 9999,
           }}
         >
-          <div><strong>Camera Info</strong></div>
-          <div>Pos: x: {cameraInfo.position.x.toFixed(2)} y: {cameraInfo.position.y.toFixed(2)} z: {cameraInfo.position.z.toFixed(2)}</div>
-          <div>Target: x: {cameraInfo.target.x.toFixed(2)} y: {cameraInfo.target.y.toFixed(2)} z: {cameraInfo.target.z.toFixed(2)}</div>
+          <div>
+            <strong>Camera Info</strong>
+          </div>
+          <div>
+            Pos: x: {cameraInfo.position.x.toFixed(2)} y:{" "}
+            {cameraInfo.position.y.toFixed(2)} z:{" "}
+            {cameraInfo.position.z.toFixed(2)}
+          </div>
+          <div>
+            Target: x: {cameraInfo.target.x.toFixed(2)} y:{" "}
+            {cameraInfo.target.y.toFixed(2)} z: {cameraInfo.target.z.toFixed(2)}
+          </div>
         </div>
       )}
 
       <div style={canvasStyle}>
-        <Canvas camera={{ position: [-0.17, 1.96, 0.60], fov: 50 }}>
+        <Canvas camera={{ position: [-0.17, 1.96, 0.6], fov: 50 }}>
           {/* Cahaya */}
           <ambientLight intensity={2} />
           <pointLight
@@ -312,7 +328,7 @@ export default function ModelViewer({ layout = "center" }) {
           />
           {/* === Lampu Spotlight === */}
           <spotLight
-            position={[-0.17, 1.96, 0.60]}
+            position={[-0.17, 1.96, 0.6]}
             intensity={2}
             angle={0.4}
             penumbra={0.5}
