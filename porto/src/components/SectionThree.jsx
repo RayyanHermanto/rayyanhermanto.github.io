@@ -48,62 +48,99 @@ export default function SectionThree() {
           left: "50%",
           width: "4px",
           height: lineHeightVh,
-          background: "linear-gradient(to bottom, #00f, #0ff)",
+          background: "linear-gradient(to bottom, #ff66cc, #ff99cc)",
           borderRadius: "2px",
           transform: "translateX(-50%)",
           transition: "height 0.2s ease",
           marginTop: "10px",
+          boxShadow: "0 0 15px 5px rgba(255, 102, 204, 0.6)", // Efek glow
         }}
       />
+      {/* Titik di ujung bawah garis */}
+      {lineHeight >= 10 && (
+        <div
+          style={{
+            position: "absolute",
+            top: `calc(${lineHeight}vh + 10px)`, // ikuti tinggi garis
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "12px",
+            height: "12px",
+            backgroundColor: "#ff66cc",
+            borderRadius: "50%",
+            boxShadow: "0 0 10px 4px rgba(255, 102, 204, 0.5)",
+            transition: "top 0.2s ease", // transisi sinkron dengan garis
+          }}
+        />
+      )}
 
-      {/* Teks di kiri */}
+      {/* Teks kiri atas */}
       <div
         style={{
           position: "absolute",
-          top: "30vh",
+          top: "10vh",
           left: "calc(50% - 250px)",
           transform: "translateX(-50%)",
           opacity: lineHeight > 50 ? 1 : 0,
           transition: "opacity 0.5s ease",
         }}
       >
-        <h3>Kiri: Pengalaman</h3>
-        <p>
-          Pengalaman saya dimulai dari membangun website kecil hingga aplikasi
-          kompleks.
+        <h2 style={{ color: "#c77dff", marginBottom: "4px" }}>
+          Front-End And Back-End Cohort
+        </h2>
+        <p style={{ color: "#aaa", marginTop: "0px", fontSize: "0.9rem" }}>
+          Coding Camp Powered By DBS Foundation
         </p>
       </div>
 
-      {/* Teks di kanan */}
+      {/* Teks kiri bawah */}
       <div
         style={{
           position: "absolute",
           top: "50vh",
-          left: "calc(50% + 250px)",
+          left: "calc(50% - 290px)",
           transform: "translateX(-50%)",
           opacity: lineHeight > 70 ? 1 : 0,
           transition: "opacity 0.5s ease",
         }}
       >
-        <h3>Kanan: Misi Saya</h3>
-        <p>
-          Menciptakan aplikasi yang tidak hanya bekerja, tapi juga memberi
-          pengalaman menarik.
-        </p>
+        <h2 style={{ color: "#c77dff", marginBottom: "4px" }}>
+          Internship At Diskominfo
+          <br />
+          Kota Semarang
+        </h2>
       </div>
 
-      {/* Konten utama */}
+      {/* Teks kanan atas */}
       <div
         style={{
           position: "absolute",
-          bottom: "10vh",
-          width: "100%",
-          textAlign: "center",
-          zIndex: 1,
+          top: "10vh",
+          left: "calc(50% + 150px)",
+          transform: "translateX(-50%)",
+          opacity: lineHeight > 50 ? 1 : 0,
+          transition: "opacity 0.5s ease",
         }}
       >
-        <h2>📍 Bagian Keempat</h2>
-        <p>Garis ini tumbuh dari atas dan memunculkan teks saat melewatinya.</p>
+        <h2 style={{ color: "#c77dff", marginBottom: "4px" }}>
+          Feb - Jun 2025
+        </h2>
+      </div>
+
+      {/* Teks kanan bawah */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50vh",
+          left: "calc(50% + 150px)",
+          transform: "translateX(-50%)",
+          opacity: lineHeight > 70 ? 1 : 0,
+          transition: "opacity 0.5s ease",
+        }}
+      >
+        <h2 style={{ color: "#c77dff", marginBottom: "4px" }}>
+          Mar 2025 - Now
+        </h2>
       </div>
     </section>
   );

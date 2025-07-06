@@ -296,10 +296,10 @@ export default function ModelViewer({ layout = "center" }) {
             color: "lime",
             padding: "10px",
             fontSize: "12px",
-            zIndex: 9999,
+            zIndex: 4,
           }}
         >
-          <div>
+          {/* <div>
             <strong>Camera Info</strong>
           </div>
           <div>
@@ -310,7 +310,7 @@ export default function ModelViewer({ layout = "center" }) {
           <div>
             Target: x: {cameraInfo.target.x.toFixed(2)} y:{" "}
             {cameraInfo.target.y.toFixed(2)} z: {cameraInfo.target.z.toFixed(2)}
-          </div>
+          </div> */}
         </div>
       )}
 
@@ -320,7 +320,7 @@ export default function ModelViewer({ layout = "center" }) {
           <ambientLight intensity={2} />
           <pointLight
             position={[0, 0, -1]}
-            intensity={300}
+            intensity={700}
             distance={3}
             decay={2}
             color="purple"

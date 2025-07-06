@@ -1,3 +1,4 @@
+import { Center } from "@react-three/drei";
 import React from "react";
 
 export default function SectionOne() {
@@ -16,36 +17,49 @@ export default function SectionOne() {
           flex: 1,
           margin: "10px",
           padding: "20px",
-          borderRadius: "20px",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           color: "#fff",
+          zIndex: 5,
+          transform: "translatey(-150px)",
         }}
       >
-        <h2>Hi! Saya</h2>
-        <p>Rayyan Syahbani Hermanto</p>
+        <h2
+          style={{
+            fontSize: "26px", // kecil
+            margin: "0 0 0px 0", // menempel di atas nama
+            color: "rgba(255, 255, 255, 0.6)", // lebih pudar
+            fontWeight: "normal",
+          }}
+        >
+          Hi! Saya
+        </h2>
+        <p
+          style={{
+            fontSize: "46px", // besar
+            margin: 0,
+            fontWeight: "700", // lebih tebal
+            color: "#ffffff", // putih solid
+            textShadow: "0 2px 6px rgba(0, 0, 0, 0.4)", // agar menonjol
+          }}
+        >
+          Rayyan Syahbani<br></br> Hermanto
+        </p>
       </div>
+
       <div
         style={{
           flex: 1,
           margin: "10px",
           padding: "20px",
-          borderRadius: "20px",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-          border: "1px solid rgba(255, 255, 255, 0.2)",
-          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           color: "#fff",
+          zIndex: 5,
+          textAlign: "center",
+          fontSize: "20px",
+          transform: "translatex(+30px)",
         }}
       >
-        <h2>⚙️ Fullstack & Game Dev</h2>
-        <p>React · Node.js · Three.js · Unity</p>
-        <p>🎯 Interaktif & Imersif</p>
-        <p>💬 Ayo Kolaborasi!</p>
+        <h2>Fullstack Web Developer</h2>
+        <h2>&</h2>
+        <h2>Game Dev</h2>
       </div>
     </section>
   );

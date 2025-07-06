@@ -41,29 +41,59 @@ export default function SectionFour() {
 
   const certificates = [
     {
-      title: "Front-End Web Developer",
-      image: "/images/frontend-cert.jpg",
-      link: "https://www.dicoding.com/certificates/1234abcd",
+      title: "Memulai Pemrograman Dengan Java",
+      image: "/images/certificate/certificate_1.jpg",
+      link: "https://drive.google.com/file/d/1kO-ovcIu86UIRCniDOezPDvMiUJTW5kI/view?usp=sharing",
     },
     {
-      title: "Front-End Web Developer",
-      image: "/images/frontend-cert.jpg",
-      link: "https://www.dicoding.com/certificates/1234abcd",
+      title: "Belajar Dasar Pemrograman Web",
+      image: "/images/certificate/certificate_2.jpg",
+      link: "https://drive.google.com/file/d/1VCcMNxIYj-eyEPkFjLuPJZi9URI8S-Ff/view?usp=sharing",
     },
     {
-      title: "Front-End Web Developer",
-      image: "/images/frontend-cert.jpg",
-      link: "https://www.dicoding.com/certificates/1234abcd",
+      title: "Belajar Fundamental Front-End Web Development",
+      image: "/images/certificate/certificate_3.jpg",
+      link: "https://drive.google.com/file/d/1sUtPnphFPNkj9sxIpmZS-N70Cmqzbh5M/view?usp=sharing",
     },
     {
-      title: "Front-End Web Developer",
-      image: "/images/frontend-cert.jpg",
-      link: "https://www.dicoding.com/certificates/1234abcd",
+      title: "Belajar Pengembangan Web Intermediate",
+      image: "/images/certificate/certificate_4.jpg",
+      link: "https://drive.google.com/file/d/1wNepG3PJpUIF7JUAorMq48XRCvB5CuHx/view?usp=sharing",
     },
     {
-      title: "Front-End Web Developer",
-      image: "/images/frontend-cert.jpg",
-      link: "https://www.dicoding.com/certificates/1234abcd",
+      title: "Memulai Dasar Pemrograman Untuk Menjadi Pengembang Software",
+      image: "/images/certificate/certificate_5.jpg",
+      link: "https://drive.google.com/file/d/1YKgEtn_t7PIwGcOP9-n98ZsxcfhAlYdC/view?usp=sharing",
+    },
+    {
+      title: "Belajar Dasar Pemrograman JavaScript",
+      image: "/images/certificate/certificate_6.jpg",
+      link: "https://drive.google.com/file/d/1aUATYWdyZv5xGYhWMlzVMqp0P_GC16Xk/view?usp=sharing",
+    },
+    {
+      title: "Belajar Back-End Pemula Dengan JavaScript",
+      image: "/images/certificate/certificate_7.jpg",
+      link: "https://drive.google.com/file/d/1jJOU4KuW_ET4t-tBpWNrcPfLeJGo80hP/view?usp=sharing",
+    },
+    {
+      title: "Pengenalan Ke Logika Pemrograman (Programming Logic 101)",
+      image: "/images/certificate/certificate_8.jpg",
+      link: "https://drive.google.com/file/d/1v_mI65rMDirsgra7DSWHtH4_9CeTH0u6/view?usp=sharing",
+    },
+    {
+      title: "Belajar Membuat Front-End Web Untuk Pemula",
+      image: "/images/certificate/certificate_9.jpg",
+      link: "https://drive.google.com/file/d/1xQTP6cetXYmKwwvCSGZvP5JhNwURESWu/view?usp=sharing",
+    },
+    {
+      title: "Belajar Dasar Git Dengan GitHub",
+      image: "/images/certificate/certificate_10.jpg",
+      link: "https://drive.google.com/file/d/1KRbCSQJvY_r5mP4oqw8z8KsZCNpGRRLB/view?usp=sharing",
+    },
+    {
+      title: "Financial Literacy 101",
+      image: "/images/certificate/certificate_11.jpg",
+      link: "https://drive.google.com/file/d/1y_hdoASW26zkdlPvFm1TG2T7eTD0vPtU/view?usp=sharing",
     },
   ];
   return (
@@ -107,7 +137,10 @@ export default function SectionFour() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: activeTab === "techs" ?"repeat(auto-fit, minmax(100px, 1fr)" : "repeat(auto-fit, minmax(280px, 1fr))",
+          gridTemplateColumns:
+            activeTab === "techs"
+              ? "repeat(auto-fit, minmax(100px, 1fr)"
+              : "repeat(auto-fit, minmax(280px, 1fr))",
           gap: "30px",
           justifyItems: "center",
           maxWidth: "1000px", // agar tidak terlalu lebar di layar besar
@@ -291,24 +324,6 @@ export default function SectionFour() {
                   overflow: "hidden",
                   zIndex: 1,
                 }}
-                onMouseEnter={(e) => {
-                  const card = e.currentTarget;
-                  card.style.width = "150%";
-                  card.style.zIndex = "10";
-                  card.style.position = "absolute";
-                  const extra = card.querySelector(".extra-details");
-                  extra.style.opacity = "1";
-                  extra.style.maxHeight = "250px";
-                }}
-                onMouseLeave={(e) => {
-                  const card = e.currentTarget;
-                  card.style.width = "100%";
-                  card.style.zIndex = "1";
-                  card.style.position = "relative";
-                  const extra = card.querySelector(".extra-details");
-                  extra.style.opacity = "0";
-                  extra.style.maxHeight = "0px";
-                }}
               >
                 <img
                   src={p.image}
@@ -319,7 +334,7 @@ export default function SectionFour() {
                     marginBottom: "16px",
                   }}
                 />
-                <h3 style={{ margin: "0 0 12px", fontSize: "1.25rem" }}>
+                <h3 style={{ margin: "0 0 12px", fontSize: "1rem" }}>
                   {p.title}
                 </h3>
                 <a
@@ -335,47 +350,6 @@ export default function SectionFour() {
                 >
                   Lihat Sertifikat
                 </a>
-
-                <div
-                  className="extra-details"
-                  style={{
-                    marginTop: "12px",
-                    color: "#ccc",
-                    fontSize: "0.9rem",
-                    lineHeight: "1.4",
-                    opacity: 0,
-                    maxHeight: 0,
-                    overflow: "hidden",
-                  }}
-                >
-                  {p.description || "No Description."}
-                </div>
-
-                {Array.isArray(p.logos) && p.logos.length > 0 && (
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      gap: "8px",
-                      marginTop: "20px",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    {p.logos.map((logo, index) => (
-                      <img
-                        key={index}
-                        src={logo}
-                        alt={`Tech ${index}`}
-                        style={{
-                          width: "28px",
-                          height: "28px",
-                          borderRadius: "4px",
-                          opacity: 0.85,
-                        }}
-                      />
-                    ))}
-                  </div>
-                )}
               </div>
             </div>
           ))}
