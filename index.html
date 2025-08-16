@@ -1,14 +1,854 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Rayyan</title>
-    <script type="module" crossorigin src="/assets/index-CDCVAiy0.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BrZilmPD.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Rayyan Personal Portfolio V2</title>
+      <!--
+         - favicon
+         -->
+      <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+      <!--
+         - custom css link
+         -->
+      <link rel="stylesheet" href="./assets/css/style.css">
+      <!--
+         - google font link
+         -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <!--
+         - #MAIN
+         -->
+      <main>
+         <!--
+            - #SIDEBAR
+            -->
+         <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+               <figure class="avatar-box">
+                  <img src="./assets/images/profile_picture.png" alt="Rayyan Syahbani Hermanto" width="80">
+               </figure>
+               <div class="info-content">
+                  <h1 class="name" title="Rayyan Syahbani Hermanto">Rayyan Syahbani <br>Hermanto</h1>
+                  <p class="title">Web developer</p>
+               </div>
+               <button class="info_more-btn" data-sidebar-btn>
+                  <span>Show Contacts</span>
+                  <ion-icon name="chevron-down"></ion-icon>
+               </button>
+            </div>
+            <div class="sidebar-info_more">
+               <div class="separator"></div>
+               <ul class="contacts-list">
+                  <li class="contact-item">
+                     <div class="icon-box">
+                        <ion-icon name="mail-outline"></ion-icon>
+                     </div>
+                     <div class="contact-info">
+                        <p class="contact-title">Email</p>
+                        <a href="mailto:hermantorayyan@gmail.com" class="contact-link">hermantorayyan@gmail.com</a>
+                     </div>
+                  </li>
+                  <li class="contact-item">
+                     <div class="icon-box">
+                        <ion-icon name="phone-portrait-outline"></ion-icon>
+                     </div>
+                     <div class="contact-info">
+                        <p class="contact-title">WhatssApp</p>
+                        <a href="https://wa.me/6289513388143" class="contact-link">+62 89513388143</a>
+                     </div>
+                  </li>
+                  <li class="contact-item">
+                     <div class="icon-box">
+                        <ion-icon name="location-outline"></ion-icon>
+                     </div>
+                     <div class="contact-info">
+                        <p class="contact-title">Location</p>
+                        <address>Kota Semarang, Jawa Tengah, Indonesia</address>
+                     </div>
+                  </li>
+               </ul>
+               <div class="separator"></div>
+               <ul class="social-list">
+                  <li class="social-item">
+                     <a href="https://www.linkedin.com/in/rayyan-hermanto" class="social-link">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                     </a>
+                  </li>
+                  <li class="social-item">
+                     <a href="https://github.com/RayyanHermanto" class="social-link">
+                        <ion-icon name="logo-github"></ion-icon>
+                     </a>
+                  </li>
+                  <li class="social-item">
+                     <a href="https://www.instagram.com/her.man.too?igsh=MWljbHNoMGFxNHI4dA==" class="social-link">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </aside>
+         <!--
+            - #main-content
+            -->
+         <div class="main-content">
+            <!--
+               - #NAVBAR
+               -->
+            <nav class="navbar">
+               <ul class="navbar-list">
+                  <li class="navbar-item">
+                     <button class="navbar-link  active" data-nav-link>About</button>
+                  </li>
+                  <li class="navbar-item">
+                     <button class="navbar-link" data-nav-link>Resume</button>
+                  </li>
+                  <li class="navbar-item">
+                     <button class="navbar-link" data-nav-link>Portfolio</button>
+                  </li>
+                  <li class="navbar-item">
+                     <button class="navbar-link" data-nav-link>Certificate</button>
+                  </li>
+                  <li class="navbar-item">
+                     <button class="navbar-link" data-nav-link>Contact</button>
+                  </li>
+               </ul>
+            </nav>
+            <!--
+               - #ABOUT
+               -->
+            <article class="about  active" data-page="about">
+               <header>
+                  <h2 class="h2 article-title">About me</h2>
+               </header>
+               <section class="about-text">
+                  <p>
+                     I'm a Fullstack Web Developer with a strong passion for building modern, interactive, and scalable web applications.
+                     I specialize in turning complex problems into simple, functional, and visually appealing solutions—covering both frontend and backend development. On the frontend, I work with technologies like Next.js, React, and Three.js, while on the backend I leverage Node.js, NestJS, and Laravel to build robust and efficient systems.
+                  </p>
+                  <p>
+                     My focus is always on creating digital experiences that are user-friendly, reliable, and impactful. Every project I take on is an opportunity to merge clean design, solid architecture, and cutting-edge technology—ensuring the final product not only works seamlessly but also leaves a lasting impression.
+                  </p>
+               </section>
+               <!--
+                  - service
+                  -->
+               <section class="service">
+                  <h3 class="h3 service-title">What i'm doing</h3>
+                  <ul class="service-list">
+                     <li class="service-item">
+                        <div class="service-icon-box">
+                           <img src="./assets/images/icon-design.svg
+                              " alt="design icon" width="40">
+                        </div>
+                        <div class="service-content-box">
+                           <h4 class="h4 service-item-title">Frontend development</h4>
+                           <p class="service-item-text">
+                              Building responsive and interactive websites using Next.js, React, and modern frontend technologies.
+                           </p>
+                        </div>
+                     </li>
+                     <li class="service-item">
+                        <div class="service-icon-box">
+                           <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                        </div>
+                        <div class="service-content-box">
+                           <h4 class="h4 service-item-title">Backend Development</h4>
+                           <p class="service-item-text">
+                              Developing secure and scalable backend systems with Node.js, NestJS, and Laravel.
+                           </p>
+                        </div>
+                     </li>
+                     <li class="service-item">
+                        <div class="service-icon-box">
+                           <img src="./assets/images/icon-db.svg" alt="mobile app icon" width="40">
+                        </div>
+                        <div class="service-content-box">
+                           <h4 class="h4 service-item-title">API & Database</h4>
+                           <p class="service-item-text">
+                              Designing and integrating RESTful and GraphQL APIs, with efficient database management using SQL and NoSQL.
+                           </p>
+                        </div>
+                     </li>
+                     <li class="service-item">
+                        <div class="service-icon-box">
+                           <img src="./assets/images/icon-controller.svg" alt="camera icon" width="40">
+                        </div>
+                        <div class="service-content-box">
+                           <h4 class="h4 service-item-title">Game Development</h4>
+                           <p class="service-item-text">
+                              Creating immersive games and interactive experiences using Unity and Godot.
+                           </p>
+                        </div>
+                     </li>
+                  </ul>
+               </section>
+               <!--
+                  - tech stack
+                  -->
+               <section class="clients">
+                  <h3 class="h3 clients-title">Tech Stack</h3>
+                  <ul class="clients-list has-scrollbar">
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/react.svg" alt="React" title="React"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/nextjs.svg" alt="Next.js" title="Next.js"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/NestJS.svg" alt="NestJS" title="NestJS"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/graphql.svg" alt="GraphQL" title="GraphQL"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/nodejs.svg" alt="Node.js" title="Node.js"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/laravel.svg" alt="Laravel" title="Laravel"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/docker.svg" alt="Docker" title="Docker"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/restapi.svg" alt="REST API" title="REST API"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/express.svg" alt="Express" title="Express"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/redis.svg" alt="Redis" title="Redis"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/rabbitmq.svg" alt="RabbitMQ" title="RabbitMQ"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/mysql.svg" alt="MySQL" title="MySQL"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/mongodb.svg" alt="MongoDB" title="MongoDB"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/oauth.svg" alt="OAuth" title="OAuth"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/jwt.svg" alt="JWT" title="JWT"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/hapi.svg" alt="Hapi.js" title="Hapi.js"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/html.svg" alt="HTML" title="HTML"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/css.svg" alt="CSS" title="CSS"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/javascript.svg" alt="JavaScript" title="JavaScript"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/threejs.svg" alt="Three.js" title="Three.js"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/tensorflow.svg" alt="TensorFlow" title="TensorFlow"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/Jest.svg" alt="Jest" title="Jest"></a>
+                     </li>
+                     <!-- General Languages -->
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/c.svg" alt="C" title="C"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/c++.svg" alt="C++" title="C++"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/csharp.svg" alt="C#" title="C#"></a>
+                     </li>
+                     <!-- Game -->
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/unity.svg" alt="Unity" title="Unity"></a>
+                     </li>
+                     <li class="clients-item">
+                        <a href="#"><img src="./assets/images/techstack/godot.svg" alt="Godot" title="Godot"></a>
+                     </li>
+                  </ul>
+               </section>
+            </article>
+            <!--
+               - #RESUME
+               -->
+            <article class="resume" data-page="resume">
+               <header>
+                  <h2 class="h2 article-title">Resume</h2>
+               </header>
+               <section class="timeline">
+                  <div class="title-wrapper">
+                     <div class="icon-box">
+                        <ion-icon name="book-outline"></ion-icon>
+                     </div>
+                     <h3 class="h3">Education</h3>
+                  </div>
+                  <ol class="timeline-list">
+                     <li class="timeline-item">
+                        <h4 class="h4 timeline-item-title">Universitas Negeri Semarang</h4>
+                        <span>2022 - Now</span>
+                        <!-- <p class="timeline-text">
+                           Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                           quas molestias
+                           exceptur.
+                           </p> -->
+                     </li>
+                     <li class="timeline-item">
+                        <h4 class="h4 timeline-item-title">SMAN 43 Jakarta</h4>
+                        <span>2019 - 2022</span>
+                        <!-- <p class="timeline-text">
+                           Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
+                           omnis..
+                           </p> -->
+                     </li>
+                  </ol>
+               </section>
+               <section class="timeline">
+                  <div class="title-wrapper">
+                     <div class="icon-box">
+                        <ion-icon name="book-outline"></ion-icon>
+                     </div>
+                     <h3 class="h3">Experience</h3>
+                  </div>
+                  <ol class="timeline-list">
+                     <li class="timeline-item">
+                        <h4 class="h4 timeline-item-title">Frontend and Backend Cohort (Dicoding)</h4>
+                        <span>Feb - Jun 2025</span>
+                        <p class="timeline-text">
+                           Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
+                           molestias
+                           exceptur.
+                        </p>
+                     </li>
+                     <li class="timeline-item">
+                        <h4 class="h4 timeline-item-title">Web Developer Intern (Diskominfo Kota Semarang)</h4>
+                        <span>Mar - Aug 2025</span>
+                        <p class="timeline-text">
+                           Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                           quas molestias
+                           exceptur.
+                        </p>
+                     </li>
+                  </ol>
+               </section>
+               <section class="skill">
+                  <h3 class="h3 skills-title">Soft Skills</h3>
+                  <ul class="skills-list content-card">
+                     <li class="skills-item">
+                        <div class="title-wrapper">
+                           <h5 class="h5">Problem Solving & Critical Thinking</h5>
+                           <data value="90">(Excellent)</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                           <div class="skill-progress-fill" style="width: 90%;"></div>
+                        </div>
+                     </li>
+                     <li class="skills-item">
+                        <div class="title-wrapper">
+                           <h5 class="h5">Effective Communication</h5>
+                           <data value="65">(Good)</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                           <div class="skill-progress-fill" style="width: 65%;"></div>
+                        </div>
+                     </li>
+                     <li class="skills-item">
+                        <div class="title-wrapper">
+                           <h5 class="h5">Teamwork & Collaboration</h5>
+                           <data value="75">(Strong)</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                           <div class="skill-progress-fill" style="width: 75%;"></div>
+                        </div>
+                     </li>
+                     <li class="skills-item">
+                        <div class="title-wrapper">
+                           <h5 class="h5">Adaptability</h5>
+                           <data value="90">(Excelent)</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                           <div class="skill-progress-fill" style="width: 90%;"></div>
+                        </div>
+                     </li>
+                     <li class="skills-item">
+                        <div class="title-wrapper">
+                           <h5 class="h5">Creativity</h5>
+                           <data value="75">(Strong)</data>
+                        </div>
+                        <div class="skill-progress-bg">
+                           <div class="skill-progress-fill" style="width: 75%;"></div>
+                        </div>
+                     </li>
+                  </ul>
+               </section>
+            </article>
+            <!--
+               - #PORTFOLIO
+               -->
+            <article class="portfolio" data-page="portfolio">
+               <header>
+                  <h2 class="h2 article-title">Portfolio</h2>
+               </header>
+               <section class="projects">
+                  <!-- Filter Button -->
+                  <ul class="filter-list">
+                     <li class="filter-item">
+                        <button class="active" data-filter-btn>All</button>
+                     </li>
+                     <li class="filter-item">
+                        <button data-filter-btn>Frontend</button>
+                     </li>
+                     <li class="filter-item">
+                        <button data-filter-btn>Backend</button>
+                     </li>
+                     <li class="filter-item">
+                        <button data-filter-btn>Game</button>
+                     </li>
+                  </ul>
+                  <!-- Dropdown Filter (Mobile) -->
+                  <div class="filter-select-box">
+                     <button class="filter-select" data-select>
+                        <div class="select-value" data-select-value>Select category</div>
+                        <div class="select-icon">
+                           <ion-icon name="chevron-down"></ion-icon>
+                        </div>
+                     </button>
+                     <ul class="select-list">
+                        <li class="select-item"><button data-select-item>All</button></li>
+                        <li class="select-item"><button data-select-item>Frontend</button></li>
+                        <li class="select-item"><button data-select-item>Backend</button></li>
+                        <li class="select-item"><button data-select-item>Game</button></li>
+                     </ul>
+                  </div>
+                  <!-- Project List -->
+                  <ul class="project-list">
+                     <li class="project-item active" data-filter-item data-category="frontend" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/portfolio/tanamai.jpg" alt="Tanam AI" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Tanam AI</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Frontend</p>
+                        </div>
+                     </li>
+                     <li class="project-item active" data-filter-item data-category="frontend" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="https://placehold.co/800x600?text=Preview+Coming+Soon" alt="Maniy" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Maniy</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Frontend</p>
+                        </div>
+                     </li>
+                     <li class="project-item active" data-filter-item data-category="frontend" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/portfolio/portov1.png" alt="Portfolio" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Rayyan Personal Portofolio v1</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Frontend</p>
+                        </div>
+                     </li>
+                     <li class="project-item active" data-filter-item data-category="backend" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/portfolio/tanamai.jpg" alt="Tanam AI" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Tanam AI</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Backend</p>
+                        </div>
+                     </li>
+                     <li class="project-item active" data-filter-item data-category="backend" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="https://placehold.co/800x600?text=Preview+Coming+Soon" alt="Maniy" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Maniy</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Backend</p>
+                        </div>
+                     </li>
+                     <li class="project-item active" data-filter-item data-category="game" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/portfolio/guardianforest2d.jpg" alt="guardianforest2d" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Guardian Forest 2D</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Game</p>
+                        </div>
+                     </li>
+                     <li class="project-item active" data-filter-item data-category="game" data-testimonials-item>
+                        <figure class="project-img">
+                           <div class="project-item-icon-box">
+                              <ion-icon name="eye-outline"></ion-icon>
+                           </div>
+                           <img src="./assets/images/portfolio/guardianforest3d.png" alt="Guardian Forest 3D" loading="lazy" data-testimonials-avatar>
+                        </figure>
+                        <h3 class="project-title" data-testimonials-title>Guardian Forest 3D</h3>
+                        <div data-testimonials-text>
+                           <p class="project-category">Game</p>
+                        </div>
+                     </li>
+                  </ul>
+               </section>
+               <!--
+                  -  modal
+                  -->
+               <div class="modal-container" data-modal-container>
+                  <div class="overlay" data-overlay></div>
+                  <section class="testimonials-modal">
+                     <button class="modal-close-btn" data-modal-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                     </button>
+                     <div class="modal-img-wrapper">
+                        <figure class="modal-avatar-box">
+                           <!-- GANTI atribut di sini -->
+                           <img data-modal-img alt="">
+                        </figure>
+                        <img src="./assets/images/icon-quote.svg" alt="quote icon">
+                     </div>
+                     <div class="modal-content">
+                        <h4 class="h3 modal-title" data-modal-title></h4>
+                        <time datetime="2021-06-14">14 June, 2021</time>
+                        <div data-modal-text></div>
+                        <a data-modal-github target="_blank" class="modal-github-link" title="Github Repository">
+                           <ion-icon name="logo-github"></ion-icon>
+                        </a>
+                     </div>
+                  </section>
+               </div>
+            </article>
+            <!--
+               - #Certificate
+               -->
+            <article class="blog" data-page="certificate">
+               <header>
+                  <h2 class="h2 article-title">Certificate</h2>
+               </header>
+               <section class="blog-posts">
+                  <ul class="blog-posts-list">
+                     <!-- 16 Jul 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_14.jpg" alt="Certificate Of Completion DBS Coding Camp" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-07-16">16 Jul 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Certificate Of Completion DBS Coding Camp</h3>
+                              <!-- <p class="blog-text">
+                                 Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                                 </p> -->
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 10 Jun 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_15.jpg" alt="English For Business Communication" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-06-10">10 Jun 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">English For Business Communication</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 31 May 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_4.jpg" alt="Belajar Pengembangan Web Intermediate" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-05-31">31 May 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Pengembangan Web Intermediate</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 26 May 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_6.jpg" alt="Belajar Back-End Pemula Dengan JavaScript" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-05-26">26 May 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Back-End Pemula Dengan JavaScript</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 25 Apr 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_11.jpg" alt="Financial Literacy 101" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-04-25">25 Apr 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Financial Literacy 101</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 23 Apr 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_3.jpg" alt="Belajar Fundamental Front-End Web Development" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-04-23">23 Apr 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Fundamental Front-End Web Development</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 23 Mar 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_9.jpg" alt="Belajar Membuat Front-End Web Untuk Pemula" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-03-23">23 Mar 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Membuat Front-End Web Untuk Pemula</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 09 Mar 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_6.jpg" alt="Belajar Dasar Pemrograman JavaScript" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-03-09">09 Mar 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Dasar Pemrograman JavaScript</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 26 Feb 2025 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_2.jpg" alt="Belajar Dasar Pemrograman Web" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-02-26">26 Feb 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Dasar Pemrograman Web</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 15 Feb 2025 (3 item dengan tanggal sama) -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_5.jpg" alt="Memulai Dasar Pemrograman Untuk Menjadi Pengembang Software" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-02-15">15 Feb 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Memulai Dasar Pemrograman Untuk Menjadi Pengembang Software</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_8.jpg" alt="Pengenalan Ke Logika Pemrograman (Programming Logic 101)" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-02-15">15 Feb 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Pengenalan Ke Logika Pemrograman (Programming Logic 101)</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_10.jpg" alt="Belajar Dasar Git Dengan GitHub" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2025-02-15">15 Feb 2025</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Belajar Dasar Git Dengan GitHub</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 21 Dec 2024 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_13.jpg" alt="AI Basic: Overview of AI (CRA Training Program)" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2024-12-21">21 Dec 2024</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">AI Basic: Overview of AI (CRA Training Program)</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 22 Dec 2024 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_12.jpg" alt="HCIA-AI V3.5 Course" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2024-12-22">22 Dec 2024</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">HCIA-AI V3.5 Course</h3>
+                           </div>
+                        </a>
+                     </li>
+                     <!-- 08 Jun 2024 -->
+                     <li class="blog-post-item">
+                        <a href="#">
+                           <figure class="blog-banner-box">
+                              <img src="./assets/images/certificate/certificate_1.jpg" alt="Memulai Pemrograman Dengan Java" loading="lazy">
+                           </figure>
+                           <div class="blog-content">
+                              <div class="blog-meta">
+                                 <p class="blog-category">Coding Camp By DBS</p>
+                                 <span class="dot"></span>
+                                 <time datetime="2024-06-08">08 Jun 2024</time>
+                              </div>
+                              <h3 class="h3 blog-item-title">Memulai Pemrograman Dengan Java</h3>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+               </section>
+            </article>
+            <!--
+               - #CONTACT
+               -->
+            <article class="contact" data-page="contact">
+               <header>
+                  <h2 class="h2 article-title">Contact</h2>
+               </header>
+               <section class="mapbox" data-mapbox>
+                  <figure>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13530.019471978141!2d110.39596209516183!3d-7.052977418259133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1755332540118!5m2!1sid!2sid" 
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </figure>
+               </section>
+               <section class="contact-form">
+                  <h3 class="h3 form-title">Contact Form</h3>
+                  <form action="https://formspree.io/f/xkgzedzk" method="POST" class="form" data-form>
+                     <div class="input-wrapper">
+                        <input 
+                           type="email" 
+                           name="email" 
+                           class="form-input" 
+                           placeholder="Email address" 
+                           required 
+                           data-form-input
+                           >
+                     </div>
+                     <textarea 
+                        name="message" 
+                        class="form-input" 
+                        placeholder="Your Message" 
+                        required 
+                        data-form-input
+                        ></textarea>
+                     <button class="form-btn" type="submit" data-form-btn>
+                        <ion-icon name="paper-plane"></ion-icon>
+                        <span>Send Message</span>
+                     </button>
+                  </form>
+               </section>
+            </article>
+         </div>
+      </main>
+      <!--
+         - custom js link
+         -->
+      <script defer src="./assets/js/script.js"></script>
+      <!--
+         - ionicon link
+         -->
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   </body>
 </html>
