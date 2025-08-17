@@ -1892,13 +1892,52 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .social-list { justify-content: center; }
   
-
-
-
   /**
 	 * RESUME
 	 */
 
   .timeline-text { max-width: 700px; }
 
+  .download-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    color: var(--orange-yellow-crayola);
+    background: var(--border-gradient-onyx);
+    border-radius: 14px;
+    box-shadow: var(--shadow-2);
+    cursor: pointer;
+    text-transform: capitalize;
+    z-index: 1;
+    transition: var(--transition-1);
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--bg-gradient-jet);
+    z-index: -1;
+    transition: var(--transition-1);
+  }
+
+  /* Hover pakai warna solid */
+  .download-btn:hover {
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+  }
+
+  .download-btn:hover::before {
+    background: var(--orange-yellow-crayola);
+  }
+
+  .download-btn:active {
+    transform: scale(0.97);
+  }
 }
