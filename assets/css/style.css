@@ -256,8 +256,8 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar {
-  width: 5px; /* for vertical scrollbar */
-  height: 5px; /* for horizontal scrollbar */
+  width: 5px;
+  height: 5px;
 }
 
 .has-scrollbar::-webkit-scrollbar-track {
@@ -506,12 +506,6 @@ main {
 
 .about-text p { margin-bottom: 15px; }
 
-
-
-/**
- * #service 
- */
-
 .service { margin-bottom: 35px; }
 
 .service-title { margin-bottom: 20px; }
@@ -554,12 +548,6 @@ main {
   font-weight: var(--fw-3);
   line-height: 1.6;
 }
-
-
-/**
- * #testimonials 
- */
-
 .testimonials { margin-bottom: 30px; }
 
 .testimonials-title { margin-bottom: 20px; }
@@ -626,6 +614,8 @@ main {
   z-index: 20;
   pointer-events: none;
   visibility: hidden;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .modal-container::-webkit-scrollbar { display: none; }
@@ -695,15 +685,32 @@ main {
 
 .modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
 
+.modal-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
-  width: max-content;
+  width: 100%;
   border-radius: 14px;
   margin-bottom: 15px;
   box-shadow: var(--shadow-2);
+  overflow: hidden;
 }
 
-.modal-img-wrapper > img { display: none; }
+.modal-avatar-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
 
 .modal-title { margin-bottom: 4px; }
 
@@ -720,6 +727,57 @@ main {
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
+
+[data-modal-text] p {
+  margin: 0;
+  text-align: justify;
+}
+
+
+/* Penyesuaian modal image di layar kecil (HP) */
+@media (max-width: 580px) {
+  /* Batasi lebar modal agar konten tidak terlalu melebar */
+  .testimonials-modal {
+    width: min(95vw, 560px);
+    max-width: 95vw;
+    padding: 20px;
+  }
+
+  /* Batasi lebar wrapper gambar */
+  .modal-img-wrapper {
+    max-width: 260px;     /* sesuaikan 220–320px */
+    margin: 0 auto 12px;
+  }
+
+  /* Pastikan box avatar ikut batas wrapper */
+  .modal-avatar-box {
+    width: 100%;
+    margin: 0 auto 12px;
+  }
+
+  /* Gambar responsif tapi dibatasi tinggi */
+  .modal-avatar-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 35vh;     /* jangan lebih dari 35% tinggi layar */
+    object-fit: contain;  /* jaga proporsi */
+    border-radius: 12px;
+  }
+
+  .modal-title {
+    font-size: var(--fs-4);
+    text-align: center;
+  }
+
+  .modal-content p {
+    font-size: var(--fs-7);
+    text-align: justify;
+  }
+}
+
+
 
 
 /**
@@ -1227,6 +1285,62 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
 
+.modal-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 2rem;
+  color: white;              /* selalu putih, baik desktop maupun mobile */
+  transition: color 0.3s;
+}
+
+.modal-github-link:hover {
+  color: #000;               /* hitam saat hover (desktop) */
+}
+  .download-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    color: var(--orange-yellow-crayola);
+    background: var(--border-gradient-onyx);
+    border-radius: 14px;
+    box-shadow: var(--shadow-2);
+    cursor: pointer;
+    text-transform: capitalize;
+    z-index: 1;
+    transition: var(--transition-1);
+  }
+
+  .download-btn::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--bg-gradient-jet);
+    z-index: -1;
+    transition: var(--transition-1);
+  }
+
+  /* Hover pakai warna solid */
+  .download-btn:hover {
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+  }
+
+  .download-btn:hover::before {
+    background: var(--orange-yellow-crayola);
+  }
+
+  .download-btn:active {
+    transform: scale(0.97);
+  }
+
 
 
 
@@ -1445,37 +1559,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     -webkit-line-clamp: 2;
   }
 
-  /* testimonials modal */
 
-  .modal-container { padding: 20px; }
-
-  .testimonials-modal {
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 25px;
-    padding: 30px;
-    border-radius: 20px;
-  }
-
-  .modal-img-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .modal-avatar-box {
-    border-radius: 18px;
-    margin-bottom: 0;
-  }
-
-  .modal-avatar-box img { width: 65px; }
-
-  .modal-img-wrapper > img {
-    display: block;
-    flex-grow: 1;
-    width: 35px;
-  }
 
   /* clients */
 
@@ -1596,23 +1680,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     gap: 35px;
     max-width: 680px;
   }
-
-  .modal-avatar-box img { width: 80px; }
-
-  .modal-github-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  margin-top: 12px;
-  font-size: 2rem;
-  color: white;
-  transition: color 0.3s;
-}
-
-.modal-github-link:hover {
-  color: #000;
-}
-
 
 
 
@@ -1897,47 +1964,4 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
-
-  .download-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 24px;
-    font-size: var(--fs-6);
-    font-weight: var(--fw-500);
-    color: var(--orange-yellow-crayola);
-    background: var(--border-gradient-onyx);
-    border-radius: 14px;
-    box-shadow: var(--shadow-2);
-    cursor: pointer;
-    text-transform: capitalize;
-    z-index: 1;
-    transition: var(--transition-1);
-  }
-
-  .download-btn::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    background: var(--bg-gradient-jet);
-    z-index: -1;
-    transition: var(--transition-1);
-  }
-
-  /* Hover pakai warna solid */
-  .download-btn:hover {
-    background: var(--orange-yellow-crayola);
-    color: var(--smoky-black);
-  }
-
-  .download-btn:hover::before {
-    background: var(--orange-yellow-crayola);
-  }
-
-  .download-btn:active {
-    transform: scale(0.97);
-  }
 }
