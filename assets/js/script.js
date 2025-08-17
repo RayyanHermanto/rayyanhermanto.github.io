@@ -95,6 +95,11 @@ for (let i = 0; i < testimonialsItem.length; i++) {
       modalGithub.href = "https://github.com/RayyanHermanto/Rayyan-Personal-Portfolio-V1";  
       modalTime.textContent = "29 April, 2025";
       modalTime.setAttribute("datetime", "2025-04-29");
+    }else if (titleHTML === "Rebrand Website" && checktextHTML === "Frontend"){
+      modalText.innerHTML = '<p class="project-category">This new project is my final internship assignment at Diskominfo Kota Semarang: a full redesign plus an admin dashboard built with PHP so non-technical operators can easily update site content. The result is a cleaner, modern interface with straightforward content management tailored for everyday use.</p>';
+      modalGithub.href = "https://github.com/okamyz/rebrand_website";  
+      modalTime.textContent = "17 August, 2025";
+      modalTime.setAttribute("datetime", "2025-08-17");
     }
     testimonialsModalFunc();
   });
