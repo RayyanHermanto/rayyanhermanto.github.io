@@ -75,11 +75,21 @@ for (let i = 0; i < testimonialsItem.length; i++) {
       modalGithub.href = "https://github.com/RayyanHermanto/Maniy";  
       modalTime.textContent = "8 August, 2025";
       modalTime.setAttribute("datetime", "2025-08-08");
+    }else if (titleHTML === "News Portal" && checktextHTML === "Frontend"){
+      modalText.innerHTML = '<p class="project-category">A modern news portal built with React and Vite, designed to display news articles fetched from multiple news APIs. Most of the displayed news content is likely related to Artificial Intelligence (AI).</p>';
+      modalGithub.href = "https://github.com/RayyanHermanto/News-Portal";  
+      modalTime.textContent = "17 August, 2025";
+      modalTime.setAttribute("datetime", "2025-08-17");
     }else if (titleHTML === "Maniy" && checktextHTML === "Backend"){
       modalText.innerHTML = '<p class="project-category">For the backend of Maniy, I built it as a personal project with a robust architecture using NestJS and GraphQL to handle queries efficiently. Security is ensured through JWT authentication and OAuth integration, while MongoDB serves as the main database to store all user financial records in a centralized yet secure manner. To support scalability and reliability, I integrated RabbitMQ for message brokering, Redis for caching, and Docker for containerized deployment. Automated testing with Jest was also implemented to maintain code quality. This backend demonstrates a combination of security, scalability, and performance in delivering an online financial recording system.</p>';
       modalGithub.href = "https://github.com/RayyanHermanto/Maniy";  
       modalTime.textContent = "8 August, 2025";
       modalTime.setAttribute("datetime", "2025-08-08");
+    }else if (titleHTML === "News Portal" && checktextHTML === "Backend"){
+      modalText.innerHTML = '<p class="project-category">Backend service for the News Portal application built with Node.js and Express, deployed on Railway. This backend manages API Keys securely on the server and provides endpoints for retrieving news data, including dummy news for frontend debugging. It aggregates news articles from four different news APIs simultaneously (NewsAPI, GNews, TheNewsAPI, and NewsData.io) to provide comprehensive coverage.</p>';
+      modalGithub.href = "https://github.com/RayyanHermanto/News-Portal-Backend";  
+      modalTime.textContent = "17 August, 2025";
+      modalTime.setAttribute("datetime", "2025-08-17");
     }else if (titleHTML === "Guardian Forest 3D" && checktextHTML === "Game"){
       modalText.innerHTML = '<p class="project-category">Guardian Forest 3D is a side-scrolled evolution of the original project, rebuilt in Unity for GEMASTIK 2025. The shift to 3D is intentional: it improves runtime performance (optimized rendering, culling, and batching), enables smoother animations, and streamlines the asset pipeline. The level design and enemy behavior are rebalanced to adjust difficulty thoughtfully—more depth, clearer feedback, and fair challenge—without sacrificing fun. Core mechanics are preserved and refined for a tighter moment-to-moment experience, delivering engaging gameplay that showcases strong problem-solving and technical execution in a competitive setting.</p>';
       modalGithub.href = "https://github.com/muhammad-kal/Guardian-Forest-Reborn";  
