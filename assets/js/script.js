@@ -62,12 +62,12 @@ for (let i = 0; i < testimonialsItem.length; i++) {
     // Jika title dan text sama-sama kosong, isi modalText dengan "blabla"
     if (titleHTML === "Tanam AI" && checktextHTML === "Frontend") {
       modalText.innerHTML = '<p class="project-category">For the frontend of Tanam AI, I developed it during a coding camp by Dicoding, powered by DBS. It was built as a Single Page Application (SPA) to deliver smooth and seamless navigation, while the implementation of Progressive Web App (PWA) features ensures offline functionality and installability. With a responsive design, the application adapts well across devices, showcasing modern web development practices and practical use cases. This frontend highlights innovation, efficiency, and adaptability gained through hands-on learning.</p>';
-      modalGithub.href = "https://github.com/tatangwarianta/capstone_tanamAI"; 
+      modalGithub.href = "https://github.com/RayyanHermanto/TanamAI"; 
       modalTime.textContent = "17 June, 2025";
       modalTime.setAttribute("datetime", "2025-06-17");
     }else if (titleHTML === "Tanam AI" && checktextHTML === "Backend"){
       modalText.innerHTML = '<p class="project-category">For the backend of Tanam AI, I took full responsibility even though it was originally a group project. The backend is built with Hapi and Node.js, providing a reliable REST API. Its main feature uses TensorFlow to detect crop pests directly from the client’s device camera. The detection results appear in less than one second with an accuracy of more than 98%. This backend showcases the integration of machine learning with efficient API services, ensuring both performance and scalability for real-world agricultural needs.</p>';
-      modalGithub.href = "https://github.com/RayyanHermanto/server_capstone";  
+      modalGithub.href = "https://github.com/RayyanHermanto/TanamAI_Backend";  
       modalTime.textContent = "17 June, 2025";
       modalTime.setAttribute("datetime", "2025-06-17");
     }else if (titleHTML === "Maniy" && checktextHTML === "Frontend"){
